@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    #container {
+      width: 300px;
+      margin: 0 auto;
+    }
+    #calculator {
+      width: 200px;
+      margin: 0 auto;
+    }
+    #calculator input[type=text] {
+      width: 200px;
+      height: 30px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    #calculator input[type=button] {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Calculator</h1>
+    <div id="calculator">
+      <input type="text" name="output" id="output" disabled>
+      <br>
+      <input type="button" value="1" onclick="updateOutput('1')">
+      <input type="button" value="2" onclick="updateOutput('2')">
+      <input type="button" value="3" onclick="updateOutput('3')">
+      <input type="button" value="+" onclick="updateOutput('+')">
+      <br>
+      <input type="button" value="4" onclick="updateOutput('4')">
+      <input type="button" value="5" onclick="updateOutput('5')">
+      <input type="button" value="6" onclick="updateOutput('6')">
+      <input type="button" value="-" onclick="updateOutput('-')">
+      <br>
+      <input type="button" value="7" onclick="updateOutput('7')">
+      <input type="button" value="8" onclick="updateOutput('8')">
+      <input type="button" value="9" onclick="updateOutput('9')">
+      <input type="button" value="" onclick="updateOutput('')">
+      <br>
+      <input type="button" value="0" onclick="updateOutput('0')">
+      <input type="button" value="." onclick="updateOutput('.')">
+      <input type="button" value="=" onclick="calculate()">
+      <input type="button" value="/" onclick="updateOutput('/')">
+    </div>
+  </div>
+  <script>
+    let output = '';
+    const updateOutput = (value) => {
+      output += value;
+      document.getElementById('output').value = output;
+    }
+    const calculate = () => {
+      document.getElementById('output').value = eval(output);
+      output = '';
+    }
+  </script>
+</body>
+</html>
